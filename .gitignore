@@ -5,7 +5,7 @@
 .DS_Store
 /.build
 /Packages
-/*.xcodeproj
+# /*.xcodeproj
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 
 ## User settings

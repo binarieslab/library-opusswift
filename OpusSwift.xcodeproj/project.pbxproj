@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		C0A25A1728DDDA70006187D3 /* Aggregated */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C0A25A1A28DDDA70006187D3 /* Build configuration list for PBXAggregateTarget "Aggregated" */;
+			buildPhases = (
+				C0A25A1B28DDDA79006187D3 /* Build Aggregated Framework */,
+			);
+			dependencies = (
+			);
+			name = Aggregated;
+			productName = Aggregated;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		C00A67F128F9D53D004B566E /* OpusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A67F028F9D53D004B566E /* OpusError.swift */; };
+		C00A67F328F9D621004B566E /* OggError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A67F228F9D621004B566E /* OggError.swift */; };
+		C00A67F528F9D675004B566E /* OpusApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A67F428F9D675004B566E /* OpusApplication.swift */; };
+		C08FA3D328DCF8FB00BFB1BA /* OpusSwift.docc in Sources */ = {isa = PBXBuildFile; fileRef = C08FA3D228DCF8FB00BFB1BA /* OpusSwift.docc */; };
+		C08FA3DF28DCF8FB00BFB1BA /* OpusSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = C08FA3D128DCF8FB00BFB1BA /* OpusSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C09F10BB28F6844D001A9F6F /* libogg-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B4DE4128F683090066468E /* libogg-ios.a */; platformFilter = ios; };
+		C09F10BC28F6844D001A9F6F /* libogg-macos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B4DE4428F683090066468E /* libogg-macos.a */; platformFilters = (macos, ); };
+		C09F10BD28F6844E001A9F6F /* libogg-watchos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B4DE4628F683090066468E /* libogg-watchos.a */; platformFilters = (watchos, ); };
+		C09F10BE28F6844E001A9F6F /* libopus-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B4DE4228F683090066468E /* libopus-ios.a */; platformFilter = ios; };
+		C09F10BF28F6844E001A9F6F /* libopus-macos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B4DE4528F683090066468E /* libopus-macos.a */; platformFilters = (macos, ); };
+		C09F10C028F6844E001A9F6F /* libopus-watchos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B4DE4328F683090066468E /* libopus-watchos.a */; platformFilters = (watchos, ); };
+		C0A4839E28F88ECD005E3826 /* opus_header.c in Sources */ = {isa = PBXBuildFile; fileRef = C0A4839C28F88ECD005E3826 /* opus_header.c */; };
+		C0A4839F28F88ECD005E3826 /* opus_header.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A4839D28F88ECD005E3826 /* opus_header.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0A483CA28F88F09005E3826 /* opus.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A483C128F88F09005E3826 /* opus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0A483CB28F88F09005E3826 /* opus_multistream.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A483C228F88F09005E3826 /* opus_multistream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0A483CC28F88F09005E3826 /* opus_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A483C328F88F09005E3826 /* opus_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0A483CD28F88F09005E3826 /* opus_defines.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A483C428F88F09005E3826 /* opus_defines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0A483CE28F88F09005E3826 /* opus_projection.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A483C528F88F09005E3826 /* opus_projection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0A483CF28F88F09005E3826 /* ogg.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A483C728F88F09005E3826 /* ogg.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0A483D028F88F09005E3826 /* config_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A483C828F88F09005E3826 /* config_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0A483D128F88F09005E3826 /* os_types.h in Headers */ = {isa = PBXBuildFile; fileRef = C0A483C928F88F09005E3826 /* os_types.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0BC7801291304950036EFF0 /* OpusHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C0BC77FF291304950036EFF0 /* OpusHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0BC7802291304950036EFF0 /* OpusHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BC7800291304950036EFF0 /* OpusHelper.m */; };
+		C0E2E6F128F97C2F00906756 /* OpusEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E2E6F028F97C2F00906756 /* OpusEncoder.swift */; };
+		C0E2E6F328F97C4000906756 /* OpusDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E2E6F228F97C4000906756 /* OpusDecoder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C00A67F028F9D53D004B566E /* OpusError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpusError.swift; sourceTree = "<group>"; };
+		C00A67F228F9D621004B566E /* OggError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OggError.swift; sourceTree = "<group>"; };
+		C00A67F428F9D675004B566E /* OpusApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpusApplication.swift; sourceTree = "<group>"; };
+		C08FA3CE28DCF8FB00BFB1BA /* OpusSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpusSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C08FA3D128DCF8FB00BFB1BA /* OpusSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpusSwift.h; sourceTree = "<group>"; };
+		C08FA3D228DCF8FB00BFB1BA /* OpusSwift.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = OpusSwift.docc; sourceTree = "<group>"; };
+		C08FA3FE28DCFD0200BFB1BA /* libopus-watchos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libopus-watchos.a"; path = "Dependencies/ressources/libopus-watchos.a"; sourceTree = "<group>"; };
+		C08FA3FF28DCFD0200BFB1BA /* libogg-macos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libogg-macos.a"; path = "Dependencies/ressources/libogg-macos.a"; sourceTree = "<group>"; };
+		C08FA40028DCFD0200BFB1BA /* libogg-watchos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libogg-watchos.a"; path = "Dependencies/ressources/libogg-watchos.a"; sourceTree = "<group>"; };
+		C08FA40128DCFD0200BFB1BA /* libogg-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libogg-ios.a"; path = "Dependencies/ressources/libogg-ios.a"; sourceTree = "<group>"; };
+		C08FA40228DCFD0200BFB1BA /* libopus-macos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libopus-macos.a"; path = "Dependencies/ressources/libopus-macos.a"; sourceTree = "<group>"; };
+		C08FA40328DCFD0300BFB1BA /* libopus-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libopus-ios.a"; path = "Dependencies/ressources/libopus-ios.a"; sourceTree = "<group>"; };
+		C0A4839C28F88ECD005E3826 /* opus_header.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = opus_header.c; sourceTree = "<group>"; };
+		C0A4839D28F88ECD005E3826 /* opus_header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opus_header.h; sourceTree = "<group>"; };
+		C0A483C128F88F09005E3826 /* opus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opus.h; sourceTree = "<group>"; };
+		C0A483C228F88F09005E3826 /* opus_multistream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opus_multistream.h; sourceTree = "<group>"; };
+		C0A483C328F88F09005E3826 /* opus_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opus_types.h; sourceTree = "<group>"; };
+		C0A483C428F88F09005E3826 /* opus_defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opus_defines.h; sourceTree = "<group>"; };
+		C0A483C528F88F09005E3826 /* opus_projection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opus_projection.h; sourceTree = "<group>"; };
+		C0A483C728F88F09005E3826 /* ogg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ogg.h; sourceTree = "<group>"; };
+		C0A483C828F88F09005E3826 /* config_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config_types.h; sourceTree = "<group>"; };
+		C0A483C928F88F09005E3826 /* os_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = os_types.h; sourceTree = "<group>"; };
+		C0B4DE4128F683090066468E /* libogg-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libogg-ios.a"; sourceTree = "<group>"; };
+		C0B4DE4228F683090066468E /* libopus-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopus-ios.a"; sourceTree = "<group>"; };
+		C0B4DE4328F683090066468E /* libopus-watchos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopus-watchos.a"; sourceTree = "<group>"; };
+		C0B4DE4428F683090066468E /* libogg-macos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libogg-macos.a"; sourceTree = "<group>"; };
+		C0B4DE4528F683090066468E /* libopus-macos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopus-macos.a"; sourceTree = "<group>"; };
+		C0B4DE4628F683090066468E /* libogg-watchos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libogg-watchos.a"; sourceTree = "<group>"; };
+		C0BC77FF291304950036EFF0 /* OpusHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpusHelper.h; sourceTree = "<group>"; };
+		C0BC7800291304950036EFF0 /* OpusHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpusHelper.m; sourceTree = "<group>"; };
+		C0E2E6F028F97C2F00906756 /* OpusEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpusEncoder.swift; sourceTree = "<group>"; };
+		C0E2E6F228F97C4000906756 /* OpusDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpusDecoder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C08FA3CB28DCF8FB00BFB1BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C09F10BD28F6844E001A9F6F /* libogg-watchos.a in Frameworks */,
+				C09F10BB28F6844D001A9F6F /* libogg-ios.a in Frameworks */,
+				C09F10C028F6844E001A9F6F /* libopus-watchos.a in Frameworks */,
+				C09F10BE28F6844E001A9F6F /* libopus-ios.a in Frameworks */,
+				C09F10BC28F6844D001A9F6F /* libogg-macos.a in Frameworks */,
+				C09F10BF28F6844E001A9F6F /* libopus-macos.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C08FA3C428DCF8FB00BFB1BA = {
+			isa = PBXGroup;
+			children = (
+				C08FA3D028DCF8FB00BFB1BA /* OpusSwift */,
+				C08FA3CF28DCF8FB00BFB1BA /* Products */,
+				C08FA3FC28DCFC8F00BFB1BA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C08FA3CF28DCF8FB00BFB1BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C08FA3CE28DCF8FB00BFB1BA /* OpusSwift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C08FA3D028DCF8FB00BFB1BA /* OpusSwift */ = {
+			isa = PBXGroup;
+			children = (
+				C0E2E6E628F892A000906756 /* Closet */,
+				C0E2E6E728F892C600906756 /* Classes */,
+				C0B4DE3428F683090066468E /* Library */,
+			);
+			path = OpusSwift;
+			sourceTree = "<group>";
+		};
+		C08FA3FC28DCFC8F00BFB1BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C08FA40128DCFD0200BFB1BA /* libogg-ios.a */,
+				C08FA3FF28DCFD0200BFB1BA /* libogg-macos.a */,
+				C08FA40028DCFD0200BFB1BA /* libogg-watchos.a */,
+				C08FA40328DCFD0300BFB1BA /* libopus-ios.a */,
+				C08FA40228DCFD0200BFB1BA /* libopus-macos.a */,
+				C08FA3FE28DCFD0200BFB1BA /* libopus-watchos.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0A483C028F88F09005E3826 /* opus */ = {
+			isa = PBXGroup;
+			children = (
+				C0A483C128F88F09005E3826 /* opus.h */,
+				C0A483C228F88F09005E3826 /* opus_multistream.h */,
+				C0A483C328F88F09005E3826 /* opus_types.h */,
+				C0A483C428F88F09005E3826 /* opus_defines.h */,
+				C0A483C528F88F09005E3826 /* opus_projection.h */,
+			);
+			path = opus;
+			sourceTree = "<group>";
+		};
+		C0A483C628F88F09005E3826 /* ogg */ = {
+			isa = PBXGroup;
+			children = (
+				C0A483C728F88F09005E3826 /* ogg.h */,
+				C0A483C828F88F09005E3826 /* config_types.h */,
+				C0A483C928F88F09005E3826 /* os_types.h */,
+			);
+			path = ogg;
+			sourceTree = "<group>";
+		};
+		C0B4DE3428F683090066468E /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C0B4DE3528F683090066468E /* include */,
+				C0B4DE4028F683090066468E /* lib */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		C0B4DE3528F683090066468E /* include */ = {
+			isa = PBXGroup;
+			children = (
+				C0A483C628F88F09005E3826 /* ogg */,
+				C0A483C028F88F09005E3826 /* opus */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		C0B4DE4028F683090066468E /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				C0B4DE4228F683090066468E /* libopus-ios.a */,
+				C0B4DE4528F683090066468E /* libopus-macos.a */,
+				C0B4DE4328F683090066468E /* libopus-watchos.a */,
+				C0B4DE4128F683090066468E /* libogg-ios.a */,
+				C0B4DE4428F683090066468E /* libogg-macos.a */,
+				C0B4DE4628F683090066468E /* libogg-watchos.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		C0E2E6E628F892A000906756 /* Closet */ = {
+			isa = PBXGroup;
+			children = (
+				C08FA3D128DCF8FB00BFB1BA /* OpusSwift.h */,
+				C08FA3D228DCF8FB00BFB1BA /* OpusSwift.docc */,
+				C0A4839C28F88ECD005E3826 /* opus_header.c */,
+				C0A4839D28F88ECD005E3826 /* opus_header.h */,
+			);
+			path = Closet;
+			sourceTree = "<group>";
+		};
+		C0E2E6E728F892C600906756 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C0E2E6F028F97C2F00906756 /* OpusEncoder.swift */,
+				C0E2E6F228F97C4000906756 /* OpusDecoder.swift */,
+				C00A67F028F9D53D004B566E /* OpusError.swift */,
+				C00A67F228F9D621004B566E /* OggError.swift */,
+				C00A67F428F9D675004B566E /* OpusApplication.swift */,
+				C0BC77FF291304950036EFF0 /* OpusHelper.h */,
+				C0BC7800291304950036EFF0 /* OpusHelper.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C08FA3C928DCF8FB00BFB1BA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0A483CD28F88F09005E3826 /* opus_defines.h in Headers */,
+				C0A483CC28F88F09005E3826 /* opus_types.h in Headers */,
+				C0BC7801291304950036EFF0 /* OpusHelper.h in Headers */,
+				C0A483CA28F88F09005E3826 /* opus.h in Headers */,
+				C0A483CF28F88F09005E3826 /* ogg.h in Headers */,
+				C0A483CE28F88F09005E3826 /* opus_projection.h in Headers */,
+				C08FA3DF28DCF8FB00BFB1BA /* OpusSwift.h in Headers */,
+				C0A483D028F88F09005E3826 /* config_types.h in Headers */,
+				C0A4839F28F88ECD005E3826 /* opus_header.h in Headers */,
+				C0A483D128F88F09005E3826 /* os_types.h in Headers */,
+				C0A483CB28F88F09005E3826 /* opus_multistream.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C08FA3CD28DCF8FB00BFB1BA /* OpusSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C08FA3E228DCF8FB00BFB1BA /* Build configuration list for PBXNativeTarget "OpusSwift" */;
+			buildPhases = (
+				C08FA3C928DCF8FB00BFB1BA /* Headers */,
+				C08FA3CA28DCF8FB00BFB1BA /* Sources */,
+				C08FA3CB28DCF8FB00BFB1BA /* Frameworks */,
+				C08FA3CC28DCF8FB00BFB1BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpusSwift;
+			productName = OpusSwift;
+			productReference = C08FA3CE28DCF8FB00BFB1BA /* OpusSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C08FA3C528DCF8FB00BFB1BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					C08FA3CD28DCF8FB00BFB1BA = {
+						CreatedOnToolsVersion = 14.0;
+						LastSwiftMigration = 1400;
+					};
+					C0A25A1728DDDA70006187D3 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
+			};
+			buildConfigurationList = C08FA3C828DCF8FB00BFB1BA /* Build configuration list for PBXProject "OpusSwift" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C08FA3C428DCF8FB00BFB1BA;
+			productRefGroup = C08FA3CF28DCF8FB00BFB1BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C08FA3CD28DCF8FB00BFB1BA /* OpusSwift */,
+				C0A25A1728DDDA70006187D3 /* Aggregated */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C08FA3CC28DCF8FB00BFB1BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C0A25A1B28DDDA79006187D3 /* Build Aggregated Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Aggregated Framework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCHEME_NAME=\"OpusSwift\"\nFRAMEWORK_NAME=\"OpusSwift\"\nIOS_SIMULATOR_ARCHIVE_PATH=\"${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphonesimulator.xcarchive\"\nIOS_DEVICE_ARCHIVE_PATH=\"${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphoneos.xcarchive\"\nWATCHOS_SIMULATOR_ARCHIVE_PATH=\"${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-watchsimulator.xcarchive\"\nWATCHOS_DEVICE_ARCHIVE_PATH=\"${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-watchos.xcarchive\"\nMACOS_ARCHIVE_PATH=\"${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-macos.xcarchive\"\n\nOUTPUT_DIC=\"./Framework/\"\n\n# iOS Simulator xcarchieve\nxcodebuild archive \\\n  -scheme ${SCHEME_NAME} \\\n  -archivePath ${IOS_SIMULATOR_ARCHIVE_PATH} \\\n  -sdk iphonesimulator \\\n  SKIP_INSTALL=NO \\\n  BUILD_BINARY_FOR_DISTRIBUTION=YES\n\n# iOS Device xcarchieve\nxcodebuild archive \\\n  -scheme ${SCHEME_NAME} \\\n  -archivePath ${IOS_DEVICE_ARCHIVE_PATH} \\\n  -sdk iphoneos \\\n  SKIP_INSTALL=NO \\\n  BUILD_BINARY_FOR_DISTRIBUTION=YES\n\n# WatchOS Simulator xcarchieve\nxcodebuild archive \\\n  -scheme ${SCHEME_NAME} \\\n  -archivePath ${WATCHOS_SIMULATOR_ARCHIVE_PATH} \\\n  -sdk watchsimulator \\\n  SKIP_INSTALL=NO \\\n  BUILD_BINARY_FOR_DISTRIBUTION=YES\n\n# WatchOS Device xcarchieve\nxcodebuild archive \\\n  -scheme ${SCHEME_NAME} \\\n  -archivePath ${WATCHOS_DEVICE_ARCHIVE_PATH} \\\n  -sdk watchos \\\n  SKIP_INSTALL=NO \\\n  BUILD_BINARY_FOR_DISTRIBUTION=YES\n\n# MacOS xcarchieve\nxcodebuild archive \\\n  -scheme ${SCHEME_NAME} \\\n  -archivePath ${MACOS_ARCHIVE_PATH} \\\n  -sdk macosx \\\n  SKIP_INSTALL=NO \\\n  BUILD_BINARY_FOR_DISTRIBUTION=YES\n\n# Clean up old output directory\nrm -rf \"${OUTPUT_DIC}\"\n\n# Create xcframwork combine of all frameworks\nxcodebuild -create-xcframework \\\n  -framework ${IOS_SIMULATOR_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \\\n  -framework ${IOS_DEVICE_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \\\n  -framework ${WATCHOS_SIMULATOR_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \\\n  -framework ${WATCHOS_DEVICE_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \\\n  -framework ${MACOS_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \\\n  -output ${OUTPUT_DIC}/${FRAMEWORK_NAME}.xcframework\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C08FA3CA28DCF8FB00BFB1BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C00A67F328F9D621004B566E /* OggError.swift in Sources */,
+				C00A67F128F9D53D004B566E /* OpusError.swift in Sources */,
+				C0E2E6F128F97C2F00906756 /* OpusEncoder.swift in Sources */,
+				C08FA3D328DCF8FB00BFB1BA /* OpusSwift.docc in Sources */,
+				C0E2E6F328F97C4000906756 /* OpusDecoder.swift in Sources */,
+				C00A67F528F9D675004B566E /* OpusApplication.swift in Sources */,
+				C0BC7802291304950036EFF0 /* OpusHelper.m in Sources */,
+				C0A4839E28F88ECD005E3826 /* opus_header.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C08FA3E028DCF8FB00BFB1BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Debug;
+		};
+		C08FA3E128DCF8FB00BFB1BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Release;
+		};
+		C08FA3E328DCF8FB00BFB1BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YZFZ7SBM3C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=watchsimulator*]" = arm64;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpusSwift/Library/lib",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.binarieslab.OpusSwift;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx watchos watchsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,4";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Debug;
+		};
+		C08FA3E428DCF8FB00BFB1BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YZFZ7SBM3C;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpusSwift/Library/lib",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.binarieslab.OpusSwift;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx watchos watchsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,4";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Release;
+		};
+		C0A25A1828DDDA70006187D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YZFZ7SBM3C;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=watchsimulator*]" = arm64;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C0A25A1928DDDA70006187D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YZFZ7SBM3C;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C08FA3C828DCF8FB00BFB1BA /* Build configuration list for PBXProject "OpusSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08FA3E028DCF8FB00BFB1BA /* Debug */,
+				C08FA3E128DCF8FB00BFB1BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C08FA3E228DCF8FB00BFB1BA /* Build configuration list for PBXNativeTarget "OpusSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08FA3E328DCF8FB00BFB1BA /* Debug */,
+				C08FA3E428DCF8FB00BFB1BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0A25A1A28DDDA70006187D3 /* Build configuration list for PBXAggregateTarget "Aggregated" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0A25A1828DDDA70006187D3 /* Debug */,
+				C0A25A1928DDDA70006187D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C08FA3C528DCF8FB00BFB1BA /* Project object */;
+}
