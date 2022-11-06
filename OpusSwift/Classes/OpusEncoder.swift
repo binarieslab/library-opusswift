@@ -18,6 +18,91 @@ public protocol OpusEncoderProtocol {
 /// (The opus-tools source code was also helpful to verify the implementation.)
 public final class OpusEncoder: OpusEncoderProtocol {
     
+    public struct DefaultSettings {
+        let pcmRate: Int32
+        let pcmChannels: Int32
+        let pcmBytesPerFrame: UInt32
+        let opusRate: Int32
+        let granuleFraction: Int32
+        let application: OpusApplication
+    }
+    
+    public struct CustomSettings {
+        let frameDuration: FrameDuration?
+        let bitrate: UInt?
+        let complexity: UInt?
+        let packageLossPerc: UInt?
+        let inBandFec: UInt?
+        let signal: Signal?
+        let bandwidth: Bandwidth?
+        let lsbDepth: UInt?
+        
+        public init(
+            frameDuration: FrameDuration? = nil,
+            bitrate: UInt? = nil,
+            complexity: UInt? = nil,
+            packageLossPerc: UInt? = nil,
+            inBandFec: UInt? = nil,
+            signal: Signal? = nil,
+            bandwidth: Bandwidth? = nil,
+            lsbDepth: UInt? = nil
+        ) {
+            self.frameDuration = frameDuration
+            self.bitrate = bitrate
+            self.complexity = complexity
+            self.packageLossPerc = packageLossPerc
+            self.inBandFec = inBandFec
+            self.signal = signal
+            self.bandwidth = bandwidth
+            self.lsbDepth = lsbDepth
+        }
+        
+        public enum FrameDuration: UInt {
+            /// Select frame size from the argument (default)
+            case frameSizeArg = 5000
+            /// Use 2.5 ms frames
+            case frameSize2point5ms = 5001
+            /// Use 5 ms frames
+            case frameSize5ms = 5002
+            /// Use 10 ms frames
+            case frameSize10ms = 5003
+            /// Use 20 ms frames
+            case frameSize20ms = 5004
+            /// Use 40 ms frames
+            case frameSize40ms = 5005
+            /// Use 60 ms frames
+            case frameSize60ms = 5006
+            /// Use 80 ms frames
+            case frameSize80ms = 5007
+            /// Use 100 ms frames
+            case frameSize100ms = 5008
+            /// Use 120 ms frames
+            case frameSize120ms = 5009
+        }
+        
+        public enum Signal: UInt {
+            /// Signal being encoded is voice
+            /// Bias thresholds towards choosing LPC or Hybrid modes.
+            case voice = 3001
+            /// Signal being encoded is music
+            /// Bias thresholds towards choosing MDCT modes.
+            case music = 3002
+        }
+        
+        public enum Bandwidth: UInt {
+            /// 4 kHz bandpass
+            case narrowband = 1101
+            /// 6 kHz bandpass
+            case mediumband = 1102
+            /// 8 kHz bandpass
+            case wideband = 1103
+            /// 12 kHz bandpass
+            case superwideband = 1104
+            /// 20 kHz bandpass
+            case fullband = 1105
+        }
+    }
+    
     private typealias opus_encoder = OpaquePointer
     
     private let opusHelper = OpusHelper()
@@ -38,15 +123,16 @@ public final class OpusEncoder: OpusEncoderProtocol {
     private let opusRate: Int32
     /// bytes per frame in the pcm audio
     private let pcmBytesPerFrame: UInt32
+    /// granule fraction where the frame size could be divided by
     private let granuleFraction: Int32
     /// cache for pcm audio that is too short to encode
     private var pcmCache = Data()
     /// cache for ogg stream
     private var oggCache = Data()
     
-    public init(pcmRate: Int32, pcmChannels: Int32, pcmBytesPerFrame: UInt32, opusRate: Int32, granuleFraction: Int32, application: OpusApplication) throws {
+    public init(defaultSettings: DefaultSettings, customSettings: CustomSettings? = nil) throws {
         // avoid resampling
-        guard pcmRate == opusRate else {
+        guard defaultSettings.pcmRate == defaultSettings.opusRate else {
             print("Resampling is not supported. Please ensure that the PCM and Opus sample rates match.")
             throw OggError.internalError
         }
@@ -54,10 +140,10 @@ public final class OpusEncoder: OpusEncoderProtocol {
         // set properties
         self.granulePosition = 0
         self.packetNumber = 0
-        self.granuleFraction = granuleFraction
-        self.frameSize = Int32(960 / (granuleFraction / opusRate))
-        self.opusRate = opusRate
-        self.pcmBytesPerFrame = pcmBytesPerFrame
+        self.granuleFraction = defaultSettings.granuleFraction
+        self.frameSize = Int32(960 / (defaultSettings.granuleFraction / defaultSettings.opusRate))
+        self.opusRate = defaultSettings.opusRate
+        self.pcmBytesPerFrame = defaultSettings.pcmBytesPerFrame
         self.pcmCache = Data()
         
         // create status to capture errors
@@ -72,7 +158,7 @@ public final class OpusEncoder: OpusEncoderProtocol {
         }
         
         // initialize opus encoder
-        encoder = opus_encoder_create(opusRate, pcmChannels, application.rawValue, &status)
+        encoder = opus_encoder_create(opusRate, defaultSettings.pcmChannels, defaultSettings.application.rawValue, &status)
         guard let error = OpusError(rawValue: status) else {
             throw OpusError.internalError
         }
@@ -80,10 +166,33 @@ public final class OpusEncoder: OpusEncoderProtocol {
             throw error
         }
         
-        opusHelper.setFrameSize(UInt(OPUS_FRAMESIZE_20_MS), encoder: encoder)
+        if let frameDuration = customSettings?.frameDuration {
+            opusHelper.setFrameSize(frameDuration.rawValue, encoder: encoder)
+        }
+        if let bitrate = customSettings?.bitrate {
+            opusHelper.setBitrate(bitrate, encoder: encoder)
+        }
+        if let complexity = customSettings?.complexity {
+            opusHelper.setComplexity(complexity, encoder: encoder)
+        }
+        if let signal = customSettings?.signal {
+            opusHelper.setSignal(signal.rawValue, encoder: encoder)
+        }
+        if let packageLossPerc = customSettings?.packageLossPerc {
+            opusHelper.setPacketLossPerc(packageLossPerc, encoder: encoder)
+        }
+        if let inBandFec = customSettings?.inBandFec {
+            opusHelper.setInBandFec(inBandFec, encoder: encoder)
+        }
+        if let bandwidth = customSettings?.bandwidth {
+            opusHelper.setBandwidth(bandwidth.rawValue, encoder: encoder)
+        }
+        if let lsbDepth = customSettings?.lsbDepth {
+            opusHelper.setLsbDepth(lsbDepth, encoder: encoder)
+        }
         
         // add opus headers to ogg stream
-        try addOpusHeader(channels: UInt8(pcmChannels), rate: UInt32(pcmRate))
+        try addOpusHeader(channels: UInt8(defaultSettings.pcmChannels), rate: UInt32(defaultSettings.pcmRate))
         try addOpusCommentHeader()
     }
     
@@ -149,60 +258,6 @@ public final class OpusEncoder: OpusEncoderProtocol {
 }
 
 private extension OpusEncoder {
-    func encode(pcm: UnsafePointer<Int16>, count: Int) throws {
-        // ensure we have complete pcm frames
-        guard UInt32(count) % pcmBytesPerFrame == 0 else {
-            throw OpusError.internalError
-        }
-        
-        // construct audio buffers
-        var pcm = UnsafeMutablePointer<Int16>(mutating: pcm)
-        var opus = [UInt8](repeating: 0, count: Int(maxFrameSize))
-        var count = count
-        
-        // encode cache, if necessary
-        try encodeCache(pcm: &pcm, bytes: &count)
-        
-        // encode complete frames
-        while count >= Int(frameSize) * Int(pcmBytesPerFrame) {
-            
-            // encode an opus frame
-            let numBytes = opus_encode(encoder, pcm, frameSize, &opus, maxFrameSize)
-            guard numBytes >= 0 else {
-                throw OpusError.internalError
-            }
-            
-            // construct ogg packet with opus frame
-            let packetPointer = UnsafeMutablePointer<UInt8>.allocate(capacity: opus.count)
-            packetPointer.initialize(from: &opus, count: opus.count)
-            var packet = ogg_packet()
-            granulePosition += Int64(frameSize * granuleFraction / opusRate)
-            packet.packet = packetPointer
-            packet.bytes = Int(numBytes)
-            packet.b_o_s = 0
-            packet.e_o_s = 0
-            packet.granulepos = granulePosition
-            packet.packetno = Int64(packetNumber)
-            packetNumber += 1
-            
-            // add packet to ogg stream
-            let status = ogg_stream_packetin(&stream, &packet)
-            guard status == 0 else {
-                throw OggError.internalError
-            }
-            
-            // advance pcm buffer
-            let bytesEncoded = Int(frameSize) * Int(pcmBytesPerFrame)
-            pcm = pcm.advanced(by: bytesEncoded / MemoryLayout<Int16>.stride)
-            count -= bytesEncoded
-        }
-        
-        // cache remaining pcm data
-        pcm.withMemoryRebound(to: UInt8.self, capacity: count) { data in
-            pcmCache.append(data, count: count)
-        }
-    }
-    
     func addOpusHeader(channels: UInt8, rate: UInt32) throws {
         // construct opus header
         let header = Header(
@@ -269,6 +324,60 @@ private extension OpusEncoder {
         
         // assemble pages and add to ogg cache
         assemblePages(flush: true)
+    }
+    
+    func encode(pcm: UnsafePointer<Int16>, count: Int) throws {
+        // ensure we have complete pcm frames
+        guard UInt32(count) % pcmBytesPerFrame == 0 else {
+            throw OpusError.internalError
+        }
+        
+        // construct audio buffers
+        var pcm = UnsafeMutablePointer<Int16>(mutating: pcm)
+        var opus = [UInt8](repeating: 0, count: Int(maxFrameSize))
+        var count = count
+        
+        // encode cache, if necessary
+        try encodeCache(pcm: &pcm, bytes: &count)
+        
+        // encode complete frames
+        while count >= Int(frameSize) * Int(pcmBytesPerFrame) {
+            
+            // encode an opus frame
+            let numBytes = opus_encode(encoder, pcm, frameSize, &opus, maxFrameSize)
+            guard numBytes >= 0 else {
+                throw OpusError.internalError
+            }
+            
+            // construct ogg packet with opus frame
+            let packetPointer = UnsafeMutablePointer<UInt8>.allocate(capacity: opus.count)
+            packetPointer.initialize(from: &opus, count: opus.count)
+            var packet = ogg_packet()
+            granulePosition += Int64(frameSize * granuleFraction / opusRate)
+            packet.packet = packetPointer
+            packet.bytes = Int(numBytes)
+            packet.b_o_s = 0
+            packet.e_o_s = 0
+            packet.granulepos = granulePosition
+            packet.packetno = Int64(packetNumber)
+            packetNumber += 1
+            
+            // add packet to ogg stream
+            let status = ogg_stream_packetin(&stream, &packet)
+            guard status == 0 else {
+                throw OggError.internalError
+            }
+            
+            // advance pcm buffer
+            let bytesEncoded = Int(frameSize) * Int(pcmBytesPerFrame)
+            pcm = pcm.advanced(by: bytesEncoded / MemoryLayout<Int16>.stride)
+            count -= bytesEncoded
+        }
+        
+        // cache remaining pcm data
+        pcm.withMemoryRebound(to: UInt8.self, capacity: count) { data in
+            pcmCache.append(data, count: count)
+        }
     }
     
     func encodeCache(pcm: inout UnsafeMutablePointer<Int16>, bytes: inout Int) throws {

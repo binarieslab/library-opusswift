@@ -25,9 +25,22 @@ final class OpusEncoderTests: XCTestCase {
         let pcmChannels: Int32 = 1
         let bytesPerFrame: UInt32 = 1
         let opusRate: Int32 = 24000
+        let granuleFraction: Int32 = 24000
         
         // When
-        let encoder = try OpusEncoder(pcmRate: pcmRate, pcmChannels: pcmChannels, pcmBytesPerFrame: bytesPerFrame, opusRate: opusRate, granuleFraction: opusRate, application: .audio)
+        let encoder = try OpusEncoder(
+            defaultSettings: OpusEncoder.DefaultSettings(
+                pcmRate: pcmRate,
+                pcmChannels: pcmChannels,
+                pcmBytesPerFrame: bytesPerFrame,
+                opusRate: opusRate,
+                granuleFraction: granuleFraction,
+                application: .audio
+            ),
+            customSettings: OpusEncoder.CustomSettings(
+                frameDuration: .frameSize20ms
+            )
+        )
         try encoder.encode(pcm: pcmData)
         let encodedData = try encoder.endstream()
         
