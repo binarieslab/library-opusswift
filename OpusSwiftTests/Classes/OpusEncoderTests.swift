@@ -44,8 +44,6 @@ final class OpusEncoderTests: XCTestCase {
         try encoder.encode(pcm: pcmData)
         let encodedData = try encoder.endstream()
         
-        print(encodedData.count)
-        
         // Expected
         XCTAssertEqual(encodedData.count, 19973)
     }
