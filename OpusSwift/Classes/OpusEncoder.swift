@@ -38,12 +38,13 @@ public final class OpusEncoder: OpusEncoderProtocol {
     private let opusRate: Int32
     /// bytes per frame in the pcm audio
     private let pcmBytesPerFrame: UInt32
+    private let granuleFraction: Int32
     /// cache for pcm audio that is too short to encode
     private var pcmCache = Data()
     /// cache for ogg stream
     private var oggCache = Data()
     
-    public init(pcmRate: Int32, pcmChannels: Int32, pcmBytesPerFrame: UInt32, opusRate: Int32, application: OpusApplication) throws {
+    public init(pcmRate: Int32, pcmChannels: Int32, pcmBytesPerFrame: UInt32, opusRate: Int32, granuleFraction: Int32, application: OpusApplication) throws {
         // avoid resampling
         guard pcmRate == opusRate else {
             print("Resampling is not supported. Please ensure that the PCM and Opus sample rates match.")
@@ -53,7 +54,8 @@ public final class OpusEncoder: OpusEncoderProtocol {
         // set properties
         self.granulePosition = 0
         self.packetNumber = 0
-        self.frameSize = Int32(960 / (24000 / opusRate))
+        self.granuleFraction = granuleFraction
+        self.frameSize = Int32(960 / (granuleFraction / opusRate))
         self.opusRate = opusRate
         self.pcmBytesPerFrame = pcmBytesPerFrame
         self.pcmCache = Data()
@@ -107,7 +109,7 @@ public final class OpusEncoder: OpusEncoderProtocol {
     public func endstream(fillBytes: Int32? = nil) throws -> Data {
         // compute granule position using cache
         let pcmFrames = pcmCache.count / Int(pcmBytesPerFrame)
-        granulePosition += Int64(pcmFrames * 24000 / Int(opusRate))
+        granulePosition += Int64(pcmFrames * Int(granuleFraction) / Int(opusRate))
         
         // add padding to cache to construct complete frame
         let toAppend = Int(frameSize) * Int(pcmBytesPerFrame) - pcmCache.count
@@ -174,7 +176,7 @@ private extension OpusEncoder {
             let packetPointer = UnsafeMutablePointer<UInt8>.allocate(capacity: opus.count)
             packetPointer.initialize(from: &opus, count: opus.count)
             var packet = ogg_packet()
-            granulePosition += Int64(frameSize * 24000 / opusRate)
+            granulePosition += Int64(frameSize * granuleFraction / opusRate)
             packet.packet = packetPointer
             packet.bytes = Int(numBytes)
             packet.b_o_s = 0
@@ -304,7 +306,7 @@ private extension OpusEncoder {
         let packetPointer = UnsafeMutablePointer<UInt8>.allocate(capacity: opus.count)
         packetPointer.initialize(from: &opus, count: opus.count)
         var packet = ogg_packet()
-        granulePosition += Int64(frameSize * 24000 / opusRate)
+        granulePosition += Int64(frameSize * granuleFraction / opusRate)
         packet.packet = packetPointer
         packet.bytes = Int(numBytes)
         packet.b_o_s = 0

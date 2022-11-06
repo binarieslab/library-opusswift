@@ -24,6 +24,11 @@
 		C00A67F128F9D53D004B566E /* OpusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A67F028F9D53D004B566E /* OpusError.swift */; };
 		C00A67F328F9D621004B566E /* OggError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A67F228F9D621004B566E /* OggError.swift */; };
 		C00A67F528F9D675004B566E /* OpusApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A67F428F9D675004B566E /* OpusApplication.swift */; };
+		C00EDC7D2917A766002F7451 /* OpusSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EDC7C2917A766002F7451 /* OpusSwiftTests.swift */; };
+		C00EDC7E2917A766002F7451 /* OpusSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08FA3CE28DCF8FB00BFB1BA /* OpusSwift.framework */; };
+		C00EDC852917A77E002F7451 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00EDC842917A77E002F7451 /* TestUtils.swift */; };
+		C00EDC892917A7BC002F7451 /* opusfile.ogg in Resources */ = {isa = PBXBuildFile; fileRef = C00EDC872917A7BC002F7451 /* opusfile.ogg */; };
+		C00EDC8A2917A7BC002F7451 /* pcmfile.wav in Resources */ = {isa = PBXBuildFile; fileRef = C00EDC882917A7BC002F7451 /* pcmfile.wav */; };
 		C08FA3D328DCF8FB00BFB1BA /* OpusSwift.docc in Sources */ = {isa = PBXBuildFile; fileRef = C08FA3D228DCF8FB00BFB1BA /* OpusSwift.docc */; };
 		C08FA3DF28DCF8FB00BFB1BA /* OpusSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = C08FA3D128DCF8FB00BFB1BA /* OpusSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C09F10BB28F6844D001A9F6F /* libogg-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B4DE4128F683090066468E /* libogg-ios.a */; platformFilter = ios; };
@@ -48,10 +53,25 @@
 		C0E2E6F328F97C4000906756 /* OpusDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E2E6F228F97C4000906756 /* OpusDecoder.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C00EDC7F2917A766002F7451 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C08FA3C528DCF8FB00BFB1BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C08FA3CD28DCF8FB00BFB1BA;
+			remoteInfo = OpusSwift;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		C00A67F028F9D53D004B566E /* OpusError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpusError.swift; sourceTree = "<group>"; };
 		C00A67F228F9D621004B566E /* OggError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OggError.swift; sourceTree = "<group>"; };
 		C00A67F428F9D675004B566E /* OpusApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpusApplication.swift; sourceTree = "<group>"; };
+		C00EDC7A2917A766002F7451 /* OpusSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpusSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C00EDC7C2917A766002F7451 /* OpusSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpusSwiftTests.swift; sourceTree = "<group>"; };
+		C00EDC842917A77E002F7451 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
+		C00EDC872917A7BC002F7451 /* opusfile.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = opusfile.ogg; sourceTree = "<group>"; };
+		C00EDC882917A7BC002F7451 /* pcmfile.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pcmfile.wav; sourceTree = "<group>"; };
 		C08FA3CE28DCF8FB00BFB1BA /* OpusSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpusSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08FA3D128DCF8FB00BFB1BA /* OpusSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpusSwift.h; sourceTree = "<group>"; };
 		C08FA3D228DCF8FB00BFB1BA /* OpusSwift.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = OpusSwift.docc; sourceTree = "<group>"; };
@@ -84,6 +104,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C00EDC772917A766002F7451 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C00EDC7E2917A766002F7451 /* OpusSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C08FA3CB28DCF8FB00BFB1BA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -100,10 +128,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C00EDC7B2917A766002F7451 /* OpusSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				C00EDC862917A7B2002F7451 /* Resources */,
+				C00EDC7C2917A766002F7451 /* OpusSwiftTests.swift */,
+				C00EDC842917A77E002F7451 /* TestUtils.swift */,
+			);
+			path = OpusSwiftTests;
+			sourceTree = "<group>";
+		};
+		C00EDC862917A7B2002F7451 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C00EDC872917A7BC002F7451 /* opusfile.ogg */,
+				C00EDC882917A7BC002F7451 /* pcmfile.wav */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C08FA3C428DCF8FB00BFB1BA = {
 			isa = PBXGroup;
 			children = (
 				C08FA3D028DCF8FB00BFB1BA /* OpusSwift */,
+				C00EDC7B2917A766002F7451 /* OpusSwiftTests */,
 				C08FA3CF28DCF8FB00BFB1BA /* Products */,
 				C08FA3FC28DCFC8F00BFB1BA /* Frameworks */,
 			);
@@ -113,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				C08FA3CE28DCF8FB00BFB1BA /* OpusSwift.framework */,
+				C00EDC7A2917A766002F7451 /* OpusSwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,6 +291,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		C00EDC792917A766002F7451 /* OpusSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C00EDC812917A766002F7451 /* Build configuration list for PBXNativeTarget "OpusSwiftTests" */;
+			buildPhases = (
+				C00EDC762917A766002F7451 /* Sources */,
+				C00EDC772917A766002F7451 /* Frameworks */,
+				C00EDC782917A766002F7451 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C00EDC802917A766002F7451 /* PBXTargetDependency */,
+			);
+			name = OpusSwiftTests;
+			productName = OpusSwiftTests;
+			productReference = C00EDC7A2917A766002F7451 /* OpusSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C08FA3CD28DCF8FB00BFB1BA /* OpusSwift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C08FA3E228DCF8FB00BFB1BA /* Build configuration list for PBXNativeTarget "OpusSwift" */;
@@ -267,9 +334,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
 				TargetAttributes = {
+					C00EDC792917A766002F7451 = {
+						CreatedOnToolsVersion = 14.1;
+					};
 					C08FA3CD28DCF8FB00BFB1BA = {
 						CreatedOnToolsVersion = 14.0;
 						LastSwiftMigration = 1400;
@@ -293,12 +363,22 @@
 			projectRoot = "";
 			targets = (
 				C08FA3CD28DCF8FB00BFB1BA /* OpusSwift */,
+				C00EDC792917A766002F7451 /* OpusSwiftTests */,
 				C0A25A1728DDDA70006187D3 /* Aggregated */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C00EDC782917A766002F7451 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C00EDC892917A7BC002F7451 /* opusfile.ogg in Resources */,
+				C00EDC8A2917A7BC002F7451 /* pcmfile.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C08FA3CC28DCF8FB00BFB1BA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,6 +410,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C00EDC762917A766002F7451 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C00EDC7D2917A766002F7451 /* OpusSwiftTests.swift in Sources */,
+				C00EDC852917A77E002F7451 /* TestUtils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C08FA3CA28DCF8FB00BFB1BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -347,7 +436,57 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C00EDC802917A766002F7451 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C08FA3CD28DCF8FB00BFB1BA /* OpusSwift */;
+			targetProxy = C00EDC7F2917A766002F7451 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		C00EDC822917A766002F7451 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = YZFZ7SBM3C;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.binarieslab.OpusSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C00EDC832917A766002F7451 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = YZFZ7SBM3C;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.binarieslab.OpusSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		C08FA3E028DCF8FB00BFB1BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -382,6 +521,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -446,6 +586,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -476,6 +617,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = YZFZ7SBM3C;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -525,6 +667,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = YZFZ7SBM3C;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -569,6 +712,7 @@
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = YZFZ7SBM3C;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				"EXCLUDED_ARCHS[sdk=watchsimulator*]" = arm64;
@@ -581,6 +725,7 @@
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = YZFZ7SBM3C;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -589,6 +734,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C00EDC812917A766002F7451 /* Build configuration list for PBXNativeTarget "OpusSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C00EDC822917A766002F7451 /* Debug */,
+				C00EDC832917A766002F7451 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C08FA3C828DCF8FB00BFB1BA /* Build configuration list for PBXProject "OpusSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
