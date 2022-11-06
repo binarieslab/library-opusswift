@@ -25,6 +25,22 @@ public final class OpusEncoder: OpusEncoderProtocol {
         let opusRate: Int32
         let granuleFraction: Int32
         let application: OpusApplication
+        
+        public init(
+            pcmRate: Int32,
+            pcmChannels: Int32,
+            pcmBytesPerFrame: UInt32,
+            opusRate: Int32,
+            granuleFraction: Int32,
+            application: OpusApplication
+        ) {
+            self.pcmRate = pcmRate
+            self.pcmChannels = pcmChannels
+            self.pcmBytesPerFrame = pcmBytesPerFrame
+            self.opusRate = opusRate
+            self.granuleFraction = granuleFraction
+            self.application = application
+        }
     }
     
     public struct CustomSettings {

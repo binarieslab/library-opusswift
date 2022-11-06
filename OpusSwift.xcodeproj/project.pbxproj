@@ -135,8 +135,8 @@
 		C00EDC7B2917A766002F7451 /* OpusSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				C00EDC8C2917A9BD002F7451 /* Classes */,
 				C00EDC8B2917A926002F7451 /* Closet */,
+				C00EDC8C2917A9BD002F7451 /* Classes */,
 			);
 			path = OpusSwiftTests;
 			sourceTree = "<group>";
